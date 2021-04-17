@@ -4,5 +4,6 @@ const home = async (request, response) => {
         layout:'home'
     });
 };
+
   
 module.exports = { home };

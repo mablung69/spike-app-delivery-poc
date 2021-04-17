@@ -13,5 +13,4 @@ router.use(bodyParser.json({ limit: '50mb' }));
 router.get('/historicalData', controller.historicalData);
 router.post('/originDestinyDistance', controller.originDestinationDistanceService);
 
-
 module.exports = router;
