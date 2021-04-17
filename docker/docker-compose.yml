@@ -1,0 +1,19 @@
+version: '3'
+services:
+
+  webapp:
+    image: ${COMPOSE_PROJECT_NAME}-webapp
+    container_name: ${COMPOSE_PROJECT_NAME}-webapp
+    hostname: ${COMPOSE_PROJECT_NAME}-webapp
+    env_file: common.env
+    restart: "${RESTART_POLICY:-no}"
+    environment:
+      - APP_UID=${UID}
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ../src:/app/src
+      - ../node_modules:/app/node_modules
+    ports:
+      - "3000:3000"
