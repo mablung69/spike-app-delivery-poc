@@ -2,7 +2,7 @@
 spike app delivery
 
 
-###<strong>PLEASE READ FIRST</strong>
+### <strong>PLEASE READ FIRST</strong>
 
 Create folder named db to be used by docker compose.
 Note this is related for a bug in docker with user:group permission needed to use this folder in volume.
