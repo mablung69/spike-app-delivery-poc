@@ -7,8 +7,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
     
             if (this.status == 200) {
                 var data = JSON.parse(this.responseText);
+                let saved_msg = "(Guardado Correctamente)";
+                if (data.status=="DON'T SAVED"){
+                    let saved_msg = "(No fue Guardado Correctamente)";
+                }
                 if (data.search_ok["origin"] && data.search_ok["destination"]){
-                    alert("La distancia es de: " + data["distance"] + " km");
+                    alert("La distancia es de: " + data["distance"] + " km" + " " + saved_msg);
                 } else {
                     let msg = "";
                     if (!data.search_ok["origin"] && !data.search_ok["destination"]){
@@ -18,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     }else if (!data.search_ok["destination"]){ 
                         msg += "Destino no encontrado";
                     }
-                    alert("Tu consulta fallo: " + msg);
+                    alert("Tu consulta fallo: " + msg + " " + saved_msg);
                 }
             } else {
                 alert("Tu consulta no pudo ser procesada! :C")
