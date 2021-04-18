@@ -7,5 +7,6 @@ CREATE TABLE distance_query (
 	origin_longitude NUMERIC,
 	destination_latitude NUMERIC, 
     destination_longitude NUMERIC,
+	error BOOLEAN DEFAULT false,
     query_time TIMESTAMP default current_timestamp
 );

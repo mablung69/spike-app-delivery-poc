@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#To define env DATABASE_URL used in heroku
+export DATABASE_URL="postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@$DB_HOST:5432/$POSTGRES_DB"
+
 cd /app
 npm install
 
