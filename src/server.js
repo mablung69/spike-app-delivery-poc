@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const hbs = require('express-handlebars');
+const connection = require('./connection/pool')();
 const apiRouter = require('./api/routes');
 const webPagesRouter = require('./webPages/routes');
 const app = express();
