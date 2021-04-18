@@ -25,8 +25,9 @@ module.exports = (app, express) => {
         response.setHeader('Access-Control-Allow-Methods', 'POST', 'GET');
         response.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         next();
-    });
+    });    
     router.get('/', controller.home);
+    router.get('/history', controller.history);
 
     // Web Page Router
     app.use('/', router);

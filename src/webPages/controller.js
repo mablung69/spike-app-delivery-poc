@@ -5,5 +5,11 @@ const home = async (request, response) => {
     });
 };
 
+const history = async (request, response) => {
+    response.render('history',{
+        layout:'home'
+    });
+};
+
   
-module.exports = { home };
+module.exports = { home, history };
