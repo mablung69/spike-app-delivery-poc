@@ -1,13 +1,15 @@
 
 const home = async (request, response) => {
     response.render('index',{
-        layout:'home'
+        layout:'home',
+        bold: {home: true}
     });
 };
 
 const history = async (request, response) => {
     response.render('history',{
-        layout:'home'
+        layout:'home',
+        bold: {history: true}
     });
 };
 

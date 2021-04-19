@@ -1,4 +1,5 @@
 const path = require('path');
+const cors = require('cors');
 const hbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const controller = require('./controller');

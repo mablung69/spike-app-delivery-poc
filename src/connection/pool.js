@@ -1,11 +1,9 @@
 const { Pool } = require('pg')
 
-const connectionString = process.env.DATABASE_URL;//'postgresql://user:qwerty@webapp-db:5432/spike-app-delivery-db'
-console.log("connectionString " + connectionString);
+const connectionString = process.env.DATABASE_URL;
 let pool = new Pool({
-  connectionString,
+    connectionString: connectionString
 })
-console.log(pool);
 
 module.exports = () => {
     return {  

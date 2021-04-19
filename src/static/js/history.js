@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         "origin_longitude": "Longitud Origen",
         "destination_latitude": "Latitud Destino",
         "destination_longitude": "Longitud Destino",
-        "error": "Consulta con Error"
+        "error": "Estado Consulta"
     };
 
     var getData = function(url, cb_ok, cb_error) { 
@@ -32,32 +32,37 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     var responseOk = function(data) { 
         console.log(data);
-        var historyDIV = document.getElementById("history");
+        var historyTable = document.getElementById("history");
 
-        var row = document.createElement('div');
+        var thead = document.createElement('thead');
+        var tr = document.createElement('tr');
         for (var j = 0; j < columnsNames.length; j++)
         {
-            var elem = document.createElement('div');
-            elem.textContent=columnsObject[columnsNames[j]];
-            row.appendChild(elem);
+            var th = document.createElement('th');
+            th.textContent=columnsObject[columnsNames[j]];
+            tr.appendChild(th);
         }
-        historyDIV.appendChild(row);
+        thead.appendChild(tr);
+        historyTable.appendChild(thead);
 
+        var tbody = document.createElement('tbody');
         for (var i = 0; i < data.data.length; i++)
         {
-            var row = document.createElement('div');
+            var tr = document.createElement('tr');
             var rowData = data.data[i];
             for (var j = 0; j < columnsNames.length; j++)
             {
-                var elem = document.createElement('div');
-                elem.textContent=rowData[columnsNames[j]];
-                row.appendChild(elem);
-            }
-            historyDIV.appendChild(row);
+                var td = document.createElement('td');
+                if (columnsNames[j]==="error"){
+                    td.textContent= (rowData[columnsNames[j]]) ? "Erroneo" : "Correcto";
+                } else {
+                    td.textContent=rowData[columnsNames[j]];
+                }                
+                tr.appendChild(td);
+            }            
+            tbody.appendChild(tr);
         }
-        var row = document.createElement('div');
-        var elem = document.createElement('div');
-        
+        historyTable.appendChild(tbody);
     };
 
     var responseError = function(data) { 

@@ -1,9 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="/static/lib/css/bootstrap.min.css" />
         <title>SPIKE DELIVERY APP</title>
     </head>
-    <body>
-        {{{body}}}
-    </body>    
+    <body class="d-flex flex-column h-100">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item {{#if bold.home}} active {{/if}}">
+                            <a class="nav-link" href="/">Calcular Distancia</a>
+                        </li>
+                        <li class="nav-item {{#if bold.history}} active {{/if}}">
+                            <a class="nav-link" href="/history">Historico</a>
+                        </li>
+                    </ul>                    
+                </div>
+            </nav>
+        </header>
+        <main class="container">
+            {{{body}}}
+        </main>
+    </body>
+    <script src="/static/lib/js/jquery-3.4.1.min.js"></script>
+    <script src="/static/lib/js/bootstrap.min.js"></script>
 </html>
