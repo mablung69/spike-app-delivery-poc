@@ -45,6 +45,18 @@ chmod 755 app.sh
 ./app.sh up -d
 ```
 
+## Stop containers
+
+```
+./app.sh stop
+```
+
+## Remove containers
+
+```
+./app.sh down
+```
+
 ## Connect to shell inside a container
 
 Sometime you want to see stuff inside the container. You can initialize a bash term using the follow command
